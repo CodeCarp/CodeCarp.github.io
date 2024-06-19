@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redis十大数据类型 | 三味书屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/blog/img/favicon.ico">
+    <script crossorigin="anonymous" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4147143076931995"></script>
+    <script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-7Y35RMZFVD"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7Y35RMZFVD');
+  </script>
+    <script async="true" src="https://cdn.wwads.cn/js/makemoney.js"></script>
+    <meta name="description" content="三味书屋 文档">
+    <meta name="keywords" content="mybatis,mybatisplus,mybatis-plus,mybatisplusdoc,mybatis-plus-doc,orm,framework,toolkit">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.f483a095.css" as="style"><link rel="preload" href="/blog/assets/js/app.9b9d5677.js" as="script"><link rel="preload" href="/blog/assets/js/2.46ebd511.js" as="script"><link rel="preload" href="/blog/assets/js/19.34852d7c.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.52b74cc0.js"><link rel="prefetch" href="/blog/assets/js/100.ed366464.js"><link rel="prefetch" href="/blog/assets/js/101.26aba877.js"><link rel="prefetch" href="/blog/assets/js/102.6347afbe.js"><link rel="prefetch" href="/blog/assets/js/103.f891dbd6.js"><link rel="prefetch" href="/blog/assets/js/104.0ae9ddb2.js"><link rel="prefetch" href="/blog/assets/js/105.607d0427.js"><link rel="prefetch" href="/blog/assets/js/106.ba1364fa.js"><link rel="prefetch" href="/blog/assets/js/107.11bc0c0c.js"><link rel="prefetch" href="/blog/assets/js/108.cf06045e.js"><link rel="prefetch" href="/blog/assets/js/109.49570185.js"><link rel="prefetch" href="/blog/assets/js/11.591c9ad6.js"><link rel="prefetch" href="/blog/assets/js/110.88f40fdc.js"><link rel="prefetch" href="/blog/assets/js/111.481047c1.js"><link rel="prefetch" href="/blog/assets/js/112.8da3c4da.js"><link rel="prefetch" href="/blog/assets/js/113.76c5ee6b.js"><link rel="prefetch" href="/blog/assets/js/114.e9193f75.js"><link rel="prefetch" href="/blog/assets/js/115.64672a1c.js"><link rel="prefetch" href="/blog/assets/js/116.2d7d88fa.js"><link rel="prefetch" href="/blog/assets/js/117.84a51668.js"><link rel="prefetch" href="/blog/assets/js/118.621a3a36.js"><link rel="prefetch" href="/blog/assets/js/119.3149a7c2.js"><link rel="prefetch" href="/blog/assets/js/12.4591af65.js"><link rel="prefetch" href="/blog/assets/js/120.712e051b.js"><link rel="prefetch" href="/blog/assets/js/121.80e41504.js"><link rel="prefetch" href="/blog/assets/js/122.1d43cb3e.js"><link rel="prefetch" href="/blog/assets/js/123.aef5d66c.js"><link rel="prefetch" href="/blog/assets/js/124.7599e17c.js"><link rel="prefetch" href="/blog/assets/js/125.ebf1f582.js"><link rel="prefetch" href="/blog/assets/js/126.88b39fdf.js"><link rel="prefetch" href="/blog/assets/js/127.15535fa8.js"><link rel="prefetch" href="/blog/assets/js/128.a3d09a46.js"><link rel="prefetch" href="/blog/assets/js/129.8da42828.js"><link rel="prefetch" href="/blog/assets/js/13.3a8fb21b.js"><link rel="prefetch" href="/blog/assets/js/130.4a2d8111.js"><link rel="prefetch" href="/blog/assets/js/131.bcf95cb3.js"><link rel="prefetch" href="/blog/assets/js/132.856203e4.js"><link rel="prefetch" href="/blog/assets/js/133.2d4a923c.js"><link rel="prefetch" href="/blog/assets/js/134.b42b98f9.js"><link rel="prefetch" href="/blog/assets/js/135.56ef11cd.js"><link rel="prefetch" href="/blog/assets/js/136.378e6255.js"><link rel="prefetch" href="/blog/assets/js/137.47e5b398.js"><link rel="prefetch" href="/blog/assets/js/138.7aef9454.js"><link rel="prefetch" href="/blog/assets/js/139.a72cfd86.js"><link rel="prefetch" href="/blog/assets/js/14.cd43a17d.js"><link rel="prefetch" href="/blog/assets/js/140.69b4f48d.js"><link rel="prefetch" href="/blog/assets/js/141.e2be5432.js"><link rel="prefetch" href="/blog/assets/js/142.e96b4bd6.js"><link rel="prefetch" href="/blog/assets/js/143.dfb1bc14.js"><link rel="prefetch" href="/blog/assets/js/144.60e1c679.js"><link rel="prefetch" href="/blog/assets/js/145.3116dacb.js"><link rel="prefetch" href="/blog/assets/js/146.b1216eb3.js"><link rel="prefetch" href="/blog/assets/js/147.f63d4e5c.js"><link rel="prefetch" href="/blog/assets/js/148.48c299f7.js"><link rel="prefetch" href="/blog/assets/js/149.37c3839b.js"><link rel="prefetch" href="/blog/assets/js/15.ac9adc79.js"><link rel="prefetch" href="/blog/assets/js/150.529b4f80.js"><link rel="prefetch" href="/blog/assets/js/151.2f2e77fc.js"><link rel="prefetch" href="/blog/assets/js/152.6a14697e.js"><link rel="prefetch" href="/blog/assets/js/153.7e60f9c2.js"><link rel="prefetch" href="/blog/assets/js/154.aa19cc7b.js"><link rel="prefetch" href="/blog/assets/js/155.687d0ef0.js"><link rel="prefetch" href="/blog/assets/js/156.ec7fe75a.js"><link rel="prefetch" href="/blog/assets/js/157.5a71cce6.js"><link rel="prefetch" href="/blog/assets/js/158.eae4cb44.js"><link rel="prefetch" href="/blog/assets/js/159.719c3381.js"><link rel="prefetch" href="/blog/assets/js/16.fa4e8558.js"><link rel="prefetch" href="/blog/assets/js/160.92880d07.js"><link rel="prefetch" href="/blog/assets/js/161.d682cf61.js"><link rel="prefetch" href="/blog/assets/js/162.0cda6b5a.js"><link rel="prefetch" href="/blog/assets/js/163.5113ad9a.js"><link rel="prefetch" href="/blog/assets/js/164.aabea8a1.js"><link rel="prefetch" href="/blog/assets/js/165.16965415.js"><link rel="prefetch" href="/blog/assets/js/166.c89861b8.js"><link rel="prefetch" href="/blog/assets/js/167.0a7d937f.js"><link rel="prefetch" href="/blog/assets/js/168.02f839da.js"><link rel="prefetch" href="/blog/assets/js/169.a38f1ce1.js"><link rel="prefetch" href="/blog/assets/js/17.45a0c9b3.js"><link rel="prefetch" href="/blog/assets/js/170.16194df4.js"><link rel="prefetch" href="/blog/assets/js/171.5c07f041.js"><link rel="prefetch" href="/blog/assets/js/172.8d6b8daf.js"><link rel="prefetch" href="/blog/assets/js/173.fa166e3b.js"><link rel="prefetch" href="/blog/assets/js/174.9706858e.js"><link rel="prefetch" href="/blog/assets/js/175.4d85fae5.js"><link rel="prefetch" href="/blog/assets/js/176.c923803f.js"><link rel="prefetch" href="/blog/assets/js/177.f21fd101.js"><link rel="prefetch" href="/blog/assets/js/178.5cd19cae.js"><link rel="prefetch" href="/blog/assets/js/179.1d5275e9.js"><link rel="prefetch" href="/blog/assets/js/18.93429c38.js"><link rel="prefetch" href="/blog/assets/js/180.0a3d05d0.js"><link rel="prefetch" href="/blog/assets/js/181.1c3a31b6.js"><link rel="prefetch" href="/blog/assets/js/20.7ef8f5bc.js"><link rel="prefetch" href="/blog/assets/js/21.273ab383.js"><link rel="prefetch" href="/blog/assets/js/22.7abb5140.js"><link rel="prefetch" href="/blog/assets/js/23.4db5408e.js"><link rel="prefetch" href="/blog/assets/js/24.a915f8a3.js"><link rel="prefetch" href="/blog/assets/js/25.2b63667c.js"><link rel="prefetch" href="/blog/assets/js/26.dd71dac9.js"><link rel="prefetch" href="/blog/assets/js/27.d5f174c3.js"><link rel="prefetch" href="/blog/assets/js/28.de39cd90.js"><link rel="prefetch" href="/blog/assets/js/29.f2a70080.js"><link rel="prefetch" href="/blog/assets/js/3.ae2a0eb4.js"><link rel="prefetch" href="/blog/assets/js/30.270c0cb1.js"><link rel="prefetch" href="/blog/assets/js/31.0440293e.js"><link rel="prefetch" href="/blog/assets/js/32.e88890c3.js"><link rel="prefetch" href="/blog/assets/js/33.211756b5.js"><link rel="prefetch" href="/blog/assets/js/34.e7590111.js"><link rel="prefetch" href="/blog/assets/js/35.afc2b5cb.js"><link rel="prefetch" href="/blog/assets/js/36.209a649a.js"><link rel="prefetch" href="/blog/assets/js/37.d2af1df2.js"><link rel="prefetch" href="/blog/assets/js/38.ec648ebf.js"><link rel="prefetch" href="/blog/assets/js/39.a94f033b.js"><link rel="prefetch" href="/blog/assets/js/4.3d59ca6a.js"><link rel="prefetch" href="/blog/assets/js/40.5eea514f.js"><link rel="prefetch" href="/blog/assets/js/41.7727d2ad.js"><link rel="prefetch" href="/blog/assets/js/42.c91dea7e.js"><link rel="prefetch" href="/blog/assets/js/43.bcce63c7.js"><link rel="prefetch" href="/blog/assets/js/44.87d45b06.js"><link rel="prefetch" href="/blog/assets/js/45.e61f45b4.js"><link rel="prefetch" href="/blog/assets/js/46.44fb6cb5.js"><link rel="prefetch" href="/blog/assets/js/47.fef88f24.js"><link rel="prefetch" href="/blog/assets/js/48.b6465a5c.js"><link rel="prefetch" href="/blog/assets/js/49.cecc9759.js"><link rel="prefetch" href="/blog/assets/js/5.084cb298.js"><link rel="prefetch" href="/blog/assets/js/50.13fd2c0e.js"><link rel="prefetch" href="/blog/assets/js/51.a5ea487a.js"><link rel="prefetch" href="/blog/assets/js/52.f035886f.js"><link rel="prefetch" href="/blog/assets/js/53.583add46.js"><link rel="prefetch" href="/blog/assets/js/54.59e5d8a6.js"><link rel="prefetch" href="/blog/assets/js/55.0260e30f.js"><link rel="prefetch" href="/blog/assets/js/56.4b823b36.js"><link rel="prefetch" href="/blog/assets/js/57.8329b357.js"><link rel="prefetch" href="/blog/assets/js/58.0609ff84.js"><link rel="prefetch" href="/blog/assets/js/59.cb729a03.js"><link rel="prefetch" href="/blog/assets/js/6.fc5ada67.js"><link rel="prefetch" href="/blog/assets/js/60.99fac602.js"><link rel="prefetch" href="/blog/assets/js/61.6abc15b9.js"><link rel="prefetch" href="/blog/assets/js/62.686f24e9.js"><link rel="prefetch" href="/blog/assets/js/63.3c11c99d.js"><link rel="prefetch" href="/blog/assets/js/64.ea08a10c.js"><link rel="prefetch" href="/blog/assets/js/65.807c6e4b.js"><link rel="prefetch" href="/blog/assets/js/66.9245a764.js"><link rel="prefetch" href="/blog/assets/js/67.040ad33d.js"><link rel="prefetch" href="/blog/assets/js/68.1ce84095.js"><link rel="prefetch" href="/blog/assets/js/69.fe36573b.js"><link rel="prefetch" href="/blog/assets/js/7.07a660de.js"><link rel="prefetch" href="/blog/assets/js/70.8d8a76a8.js"><link rel="prefetch" href="/blog/assets/js/71.478270d5.js"><link rel="prefetch" href="/blog/assets/js/72.036b5715.js"><link rel="prefetch" href="/blog/assets/js/73.047deab9.js"><link rel="prefetch" href="/blog/assets/js/74.86061968.js"><link rel="prefetch" href="/blog/assets/js/75.b9e8ea12.js"><link rel="prefetch" href="/blog/assets/js/76.8eec7148.js"><link rel="prefetch" href="/blog/assets/js/77.db55caca.js"><link rel="prefetch" href="/blog/assets/js/78.96052d5a.js"><link rel="prefetch" href="/blog/assets/js/79.cace8ef7.js"><link rel="prefetch" href="/blog/assets/js/8.55613c16.js"><link rel="prefetch" href="/blog/assets/js/80.681e1852.js"><link rel="prefetch" href="/blog/assets/js/81.1abe502b.js"><link rel="prefetch" href="/blog/assets/js/82.6f5afa52.js"><link rel="prefetch" href="/blog/assets/js/83.bfe03f4f.js"><link rel="prefetch" href="/blog/assets/js/84.824095a7.js"><link rel="prefetch" href="/blog/assets/js/85.d353cc0a.js"><link rel="prefetch" href="/blog/assets/js/86.c3a85a3d.js"><link rel="prefetch" href="/blog/assets/js/87.c40b74a1.js"><link rel="prefetch" href="/blog/assets/js/88.318b4aad.js"><link rel="prefetch" href="/blog/assets/js/89.bfe193c8.js"><link rel="prefetch" href="/blog/assets/js/9.b395ae44.js"><link rel="prefetch" href="/blog/assets/js/90.476d5df8.js"><link rel="prefetch" href="/blog/assets/js/91.02e3ce30.js"><link rel="prefetch" href="/blog/assets/js/92.554fbc84.js"><link rel="prefetch" href="/blog/assets/js/93.7957a6a7.js"><link rel="prefetch" href="/blog/assets/js/94.23c1385c.js"><link rel="prefetch" href="/blog/assets/js/95.f5e265d6.js"><link rel="prefetch" href="/blog/assets/js/96.e03305f8.js"><link rel="prefetch" href="/blog/assets/js/97.1a6add10.js"><link rel="prefetch" href="/blog/assets/js/98.219ad021.js"><link rel="prefetch" href="/blog/assets/js/99.562bbdf4.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.f483a095.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/logo.png" alt="三味书屋" class="logo"> <span class="site-name can-hide">三味书屋</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><a href="/blog/pages/a2c223/" class="link-title">Java</a> <span class="title" style="display:none;">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/a2c223/" class="nav-link">Java基础入门</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/cae45b/" class="nav-link">web开发</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/0821f9/" class="nav-link">Spring</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/57e0a9/" class="nav-link">SpringMVC</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/d9ebe1/" class="nav-link">MyBatis</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c1c654/" class="nav-link">SSM整合</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/3c8c4d/" class="nav-link">SpringBoot</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/240195/" class="nav-link">SpringSecurity</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/202d71/" class="nav-link">ActiveMQ</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/pages/4b7f26/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/4b7f26/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/85ab5d/" class="nav-link">VUE</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/35ad38/" class="nav-link">AJAX</a></li></ul></div></div><div class="nav-item"><a href="/blog/pages/8e08b7/" class="nav-link">Linux</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/blog/pages/6d7041/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/6d7041/" class="nav-link">Redis</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🧰工具" class="dropdown-title"><a href="/blog/pages/9f2650/" class="link-title">🧰工具</a> <span class="title" style="display:none;">🧰工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/9f2650/" class="nav-link">Git</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/ffb338/" class="nav-link">Maven</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🚀打工人笔记本" class="dropdown-title"><a href="/blog/pages/de45d0/" class="link-title">🚀打工人笔记本</a> <span class="title" style="display:none;">🚀打工人笔记本</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/de45d0/" class="nav-link">Utils</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/afc7bc/" class="nav-link">总结</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><!----> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java" class="dropdown-title"><a href="/blog/pages/a2c223/" class="link-title">Java</a> <span class="title" style="display:none;">Java</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/a2c223/" class="nav-link">Java基础入门</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/cae45b/" class="nav-link">web开发</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/0821f9/" class="nav-link">Spring</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/57e0a9/" class="nav-link">SpringMVC</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/d9ebe1/" class="nav-link">MyBatis</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/c1c654/" class="nav-link">SSM整合</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/3c8c4d/" class="nav-link">SpringBoot</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/240195/" class="nav-link">SpringSecurity</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/202d71/" class="nav-link">ActiveMQ</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/blog/pages/4b7f26/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/4b7f26/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/85ab5d/" class="nav-link">VUE</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/35ad38/" class="nav-link">AJAX</a></li></ul></div></div><div class="nav-item"><a href="/blog/pages/8e08b7/" class="nav-link">Linux</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><a href="/blog/pages/6d7041/" class="link-title">数据库</a> <span class="title" style="display:none;">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/6d7041/" class="nav-link">Redis</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🧰工具" class="dropdown-title"><a href="/blog/pages/9f2650/" class="link-title">🧰工具</a> <span class="title" style="display:none;">🧰工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/9f2650/" class="nav-link">Git</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/ffb338/" class="nav-link">Maven</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🚀打工人笔记本" class="dropdown-title"><a href="/blog/pages/de45d0/" class="link-title">🚀打工人笔记本</a> <span class="title" style="display:none;">🚀打工人笔记本</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/pages/de45d0/" class="nav-link">Utils</a></li><li class="dropdown-item"><!----> <a href="/blog/pages/afc7bc/" class="nav-link">总结</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Redis</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/6d7041/" class="sidebar-link">Redis概述</a></li><li><a href="/blog/pages/a13936/" class="sidebar-link">Redis的安装与配置</a></li><li><a href="/blog/pages/3aadfd/" aria-current="page" class="active sidebar-link">Redis十大数据类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/blog/pages/3aadfd/#redis十大数据类型" class="sidebar-link">Redis十大数据类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-1-redis-键-key" class="sidebar-link">3.1 Redis 键（key)</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-2-redis-字符串-string" class="sidebar-link">3.2 Redis 字符串(String)</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-3-redis-列表-list" class="sidebar-link">3.3 Redis 列表（List）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-4-redis哈希-hash" class="sidebar-link">3.4 Redis哈希（Hash）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-6-redis-有序集合-zset" class="sidebar-link">3.6 Redis 有序集合（Zset）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-7-redis-位图-bitmap" class="sidebar-link">3.7 Redis 位图（Bitmap）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-8-redis-基数统计-hyperloglog" class="sidebar-link">3.8 Redis 基数统计（HyperLogLog）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-9-redis-地理空间-geo" class="sidebar-link">3.9 Redis 地理空间（GEO）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-10-redis-流-stream" class="sidebar-link">3.10 Redis 流（Stream）</a></li><li class="sidebar-sub-header level3"><a href="/blog/pages/3aadfd/#_3-11-redis-位域-bitfield" class="sidebar-link">3.11 Redis 位域（Bitfield）</a></li></ul></li></ul></li><li><a href="/blog/pages/18ccca/" class="sidebar-link">Redis持久化</a></li><li><a href="/blog/pages/739a6f/" class="sidebar-link">Redis事务</a></li><li><a href="/blog/pages/af0588/" class="sidebar-link">Redis管道</a></li><li><a href="/blog/pages/3a1e35/" class="sidebar-link">Redis发布订阅</a></li><li><a href="/blog/pages/435f17/" class="sidebar-link">Redis复制（replica）</a></li><li><a href="/blog/pages/10d54e/" class="sidebar-link">Redis哨兵（sentinel）</a></li><li><a href="/blog/pages/95cc77/" class="sidebar-link">Redis集群（cluster）</a></li><li><a href="/blog/pages/114ad5/" class="sidebar-link">SpringBoot集成Redis</a></li></ul></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/blog/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><span data-v-06225672>数据库</span></li><li data-v-06225672><span data-v-06225672>Redis</span></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>yli</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2023-08-22</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">Redis十大数据类型<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="redis十大数据类型"><a href="#redis十大数据类型" class="header-anchor">#</a> Redis十大数据类型</h2> <blockquote><p>此处所说的数据类型是<code>value</code>的数据类型，<code>key</code>的类型都是字符串。</p></blockquote> <h3 id="_3-1-redis-键-key"><a href="#_3-1-redis-键-key" class="header-anchor">#</a> 3.1 Redis 键（key)</h3> <table><thead><tr><th style="text-align:left;">命令</th> <th>概述</th></tr></thead> <tbody><tr><td style="text-align:left;">keys *</td> <td>查看当前库所有的key</td></tr> <tr><td style="text-align:left;">exists key</td> <td>判断某个key是否存在</td></tr> <tr><td style="text-align:left;">type key</td> <td>查看key是什么类型</td></tr> <tr><td style="text-align:left;">del key</td> <td>删除指定key</td></tr> <tr><td style="text-align:left;">unlink key</td> <td>非阻塞删除，仅仅将keys从keyspace元数据中删除，真正的删除会在后续异步中操作。</td></tr> <tr><td style="text-align:left;">ttl key</td> <td>查看还有多少秒过期，-1表示永不过期，-2表示已过期</td></tr> <tr><td style="text-align:left;">expire key 秒钟</td> <td>为给定的key设置过期时间</td></tr> <tr><td style="text-align:left;">move key dbindex【0-15】</td> <td>将当前数据库的key移动到给定的数据库db中</td></tr> <tr><td style="text-align:left;">select dbindex</td> <td>切换数据库【0-15】，默认为0</td></tr> <tr><td style="text-align:left;">dbsize</td> <td>查看当前数据库的key的数量</td></tr> <tr><td style="text-align:left;">flushdb</td> <td>清空当前库</td></tr> <tr><td style="text-align:left;">flushall</td> <td>通杀全部库【清库】</td></tr></tbody></table> <blockquote><p>命令不区分大小写，而key是区分大小写的。</p> <p>永远的帮助命令，<code>help@类型</code>，<code>help @String</code>、<code>help @list</code>...</p></blockquote> <h3 id="_3-2-redis-字符串-string"><a href="#_3-2-redis-字符串-string" class="header-anchor">#</a> 3.2 Redis 字符串(String)</h3> <h4 id="_3-2-1-set命令"><a href="#_3-2-1-set命令" class="header-anchor">#</a> 3.2.1 SET命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SET key value [NX | XX] [GET] [EX seconds | PX milliseconds |
+  EXAT unix-time-seconds | PXAT unix-time-milliseconds | KEEPTTL]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>set 命令有<code>EX</code>、<code>PS</code>、<code>NX</code>、<code>XX</code>以及<code>KEEPTTL</code>五个可选参数，其中<code>KEEPTTL</code>为6.0版本添加的可选参数，其他为2.6.12版本添加的可选参数。</p> <ul><li><code>EX seconds</code>：以秒为单位设置过期时间；</li> <li><code>PX milliseconds</code>：以毫秒为单位设置过期时间；</li> <li><code>EXAT timestamp</code>：设置以秒为单位的UNIX时间戳所对应的时间为过期时间；</li> <li><code>PXAT milliseconds-timstamp</code>：设置以毫秒为单位的UNIX时间戳所对应的时间为过期时间；</li> <li><code>NX</code>：键不存在的时候设置键值；</li> <li><code>XX</code>：键存在的时候设置键值；</li> <li><code>KEEPTTL</code>：保留设置前指定键的生存时间；</li> <li><code>GET</code>：返回指定键原本的值，若键不存在时返回<code>nil</code>。</li></ul></blockquote> <h4 id="_3-2-2-mset命令"><a href="#_3-2-2-mset命令" class="header-anchor">#</a> 3.2.2 MSET命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>MSET key value [key value ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>同时设置/获取多个键值。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; mset k1 v1 k2 v2 k3 v3
+OK
+127.0.0.1:6379&gt; mget k1 k2 k3
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+127.0.0.1:6379&gt; msetnx k1 v1 k4 v4
+(integer) 0
+127.0.0.1:6379&gt; mget k1 k2 k3 k4
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+4) (nil)
+127.0.0.1:6379&gt; msetnx k5 v5 k4 v4
+(integer) 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h4 id="_3-2-3-setrange命令"><a href="#_3-2-3-setrange命令" class="header-anchor">#</a> 3.2.3 SETRANGE命令</h4> <blockquote><p><code>setrange</code>、<code>getrange</code>获取指定区间范围内的值。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; set k1 abcd1234
+OK
+127.0.0.1:6379&gt; getrange k1 0 -1
+&quot;abcd1234&quot;
+127.0.0.1:6379&gt; getrange k1 0 3
+&quot;abcd&quot;
+127.0.0.1:6379&gt; setrange k1 1 xxyy
+(integer) 8
+127.0.0.1:6379&gt; get k1
+&quot;axxyy234&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="_3-2-4-incr-inctby命令"><a href="#_3-2-4-incr-inctby命令" class="header-anchor">#</a> 3.2.4 INCR /INCTBY命令</h4> <blockquote><p>数值增减，一定要是数字才能进行加减。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; set k1 100
+OK
+127.0.0.1:6379&gt; get k1
+&quot;100&quot;
+127.0.0.1:6379&gt; incr k1
+(integer) 101
+127.0.0.1:6379&gt; incr k1
+(integer) 102
+127.0.0.1:6379&gt; incr k1
+(integer) 103
+127.0.0.1:6379&gt; incr k1
+(integer) 104
+127.0.0.1:6379&gt; incrby k1 3
+(integer) 107
+127.0.0.1:6379&gt; incrby k1 3
+(integer) 110
+127.0.0.1:6379&gt; incrby k1 3
+(integer) 113
+127.0.0.1:6379&gt; decr k1
+(integer) 112
+127.0.0.1:6379&gt; decr k1
+(integer) 111
+127.0.0.1:6379&gt; decrby k1 3
+(integer) 108
+127.0.0.1:6379&gt; decrby k1 3
+(integer) 105
+127.0.0.1:6379&gt; decrby k1 3
+(integer) 102
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h4 id="_3-2-5-strlen-append命令"><a href="#_3-2-5-strlen-append命令" class="header-anchor">#</a> 3.2.5 STRLEN/APPEND命令</h4> <blockquote><p>获取字符串长度和内容追加</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; set k1 abcd
+OK
+127.0.0.1:6379&gt; strlen k1
+(integer) 4
+127.0.0.1:6379&gt; append k1 xxxx
+(integer) 8
+127.0.0.1:6379&gt; strlen k1
+(integer) 8
+127.0.0.1:6379&gt; get k1
+&quot;abcdxxxx&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="_3-2-6-setex-setnx命令"><a href="#_3-2-6-setex-setnx命令" class="header-anchor">#</a> 3.2.6 SETEX/SETNX命令</h4> <blockquote><p>分布式锁。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; set k1 abcd
+OK
+127.0.0.1:6379&gt; strlen k1
+(integer) 4
+127.0.0.1:6379&gt; append k1 xxxx
+(integer) 8
+127.0.0.1:6379&gt; strlen k1
+(integer) 8
+127.0.0.1:6379&gt; get k1
+&quot;abcdxxxx&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="_3-2-7-getset命令"><a href="#_3-2-7-getset命令" class="header-anchor">#</a> 3.2.7 GETSET命令</h4> <blockquote><p>将给定<code>key</code>的值设为<code>value</code>，并返回<code>key</code>的旧值（<code>old value</code>）</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; getset k1 haha
+&quot;v11&quot;
+127.0.0.1:6379&gt; get k1
+&quot;haha&quot;
+127.0.0.1:6379&gt; set k1 v1 get
+&quot;haha&quot;
+127.0.0.1:6379&gt; get k1
+&quot;v1&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_3-2-8-应用场景"><a href="#_3-2-8-应用场景" class="header-anchor">#</a> 3.2.8 应用场景</h4> <blockquote><ol><li>比如抖音无限点赞某个视频或者商品，点一下加一次（<code>incr k1</code>）；</li> <li>是否喜欢的文章。</li></ol></blockquote> <h3 id="_3-3-redis-列表-list"><a href="#_3-3-redis-列表-list" class="header-anchor">#</a> 3.3 Redis 列表（List）</h3> <blockquote><p>一个双端链表的结构，容量是2的32次方减一个元素，大概40多亿，主要功能有<code>push/pop</code>等，一般用在栈、消息、队列等场景。</p> <p>他的底层实际是个双向链表，对两端的操作性能很高，通过索引下标的操作中间的节点性能会较差。</p></blockquote> <p><img src="/blog/assets/img/image-20230419144100258.96ecdc92.png" alt="image-20230419144100258"></p> <h4 id="_3-3-1-lpush-rpush-lrange命令"><a href="#_3-3-1-lpush-rpush-lrange命令" class="header-anchor">#</a> 3.3.1 LPUSH/RPUSH/LRANGE命令</h4> <blockquote><p>向集合中添加元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lpush list1 1 2 3 4 5
+(integer) 5
+127.0.0.1:6379&gt; rpush list2 11 22 33 44 55
+(integer) 5
+127.0.0.1:6379&gt; type list1
+list
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+5) &quot;1&quot;
+127.0.0.1:6379&gt; lrange list2 0 -1
+1) &quot;11&quot;
+2) &quot;22&quot;
+3) &quot;33&quot;
+4) &quot;44&quot;
+5) &quot;55&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h4 id="_3-3-2-lpop-rpop命令"><a href="#_3-3-2-lpop-rpop命令" class="header-anchor">#</a> 3.3.2 LPOP/RPOP命令</h4> <blockquote><p>将元素从集合中弹出。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+5) &quot;1&quot;
+127.0.0.1:6379&gt; lpop list1
+&quot;5&quot;
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;4&quot;
+2) &quot;3&quot;
+3) &quot;2&quot;
+4) &quot;1&quot;
+127.0.0.1:6379&gt; rpop list1
+&quot;1&quot;
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;4&quot;
+2) &quot;3&quot;
+3) &quot;2&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h4 id="_3-3-3-lindex-llen命令"><a href="#_3-3-3-lindex-llen命令" class="header-anchor">#</a> 3.3.3 LINDEX/LLEN命令</h4> <blockquote><p><code>LINDEX</code>：按照索引下标获取元素（从上到下）</p> <p><code>LLEN</code>：获取列表中元素的个数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lindex list1 1
+&quot;3&quot;
+127.0.0.1:6379&gt; llen list1
+(integer) 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-3-4-lrem命令"><a href="#_3-3-4-lrem命令" class="header-anchor">#</a> 3.3.4 LREM命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>LREM key count element
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>从left往right删除<code>count</code>个值等于<code>element</code>的元素。返回的值为实际删除的数量。</p> <p>**<code>lrem list1 0 value</code>**表示删除全部给定值为<code>value</code>的值，<strong>零个就是全部值</strong></p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lpush list1 1 1 1 1 2 2 2 3 3 3 4 5
+(integer) 15
+127.0.0.1:6379&gt; lrange list1 0 -1
+ 1) &quot;5&quot;
+ 2) &quot;4&quot;
+ 3) &quot;3&quot;
+ 4) &quot;3&quot;
+ 5) &quot;3&quot;
+ 6) &quot;2&quot;
+ 7) &quot;2&quot;
+ 8) &quot;2&quot;
+ 9) &quot;1&quot;
+10) &quot;1&quot;
+11) &quot;1&quot;
+12) &quot;1&quot;
+13) &quot;4&quot;
+14) &quot;3&quot;
+15) &quot;2&quot;
+127.0.0.1:6379&gt; lrem list1 3 1
+(integer) 3
+127.0.0.1:6379&gt; lrange list1 0 -1
+ 1) &quot;5&quot;
+ 2) &quot;4&quot;
+ 3) &quot;3&quot;
+ 4) &quot;3&quot;
+ 5) &quot;3&quot;
+ 6) &quot;2&quot;
+ 7) &quot;2&quot;
+ 8) &quot;2&quot;
+ 9) &quot;1&quot;
+10) &quot;4&quot;
+11) &quot;3&quot;
+12) &quot;2&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h4 id="_3-3-5-ltrim命令"><a href="#_3-3-5-ltrim命令" class="header-anchor">#</a> 3.3.5 LTRIM命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>LTRIM key start stop
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>截取指定范围的值后在赋值给key。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lrange list2 0 -1
+ 1) &quot;0&quot;
+ 2) &quot;1&quot;
+ 3) &quot;2&quot;
+ 4) &quot;3&quot;
+ 5) &quot;4&quot;
+ 6) &quot;5&quot;
+ 7) &quot;6&quot;
+ 8) &quot;7&quot;
+ 9) &quot;8&quot;
+10) &quot;9&quot;
+127.0.0.1:6379&gt; ltrim list2 5 10
+OK
+127.0.0.1:6379&gt; lrange list2 0 -1
+1) &quot;5&quot;
+2) &quot;6&quot;
+3) &quot;7&quot;
+4) &quot;8&quot;
+5) &quot;9&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h4 id="_3-3-6-rpoplpush命令"><a href="#_3-3-6-rpoplpush命令" class="header-anchor">#</a> 3.3.6 RPOPLPUSH命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>BRPOPLPUSH source destination timeout
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>移除列表的最后一个元素，并将该元素添加到另一个列表并返回。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lpush list1 0 1 2
+(integer) 3
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;2&quot;
+2) &quot;1&quot;
+3) &quot;0&quot;
+127.0.0.1:6379&gt; lpush list2 4 5 6 
+(integer) 3
+127.0.0.1:6379&gt; lrange list2 0 -1
+1) &quot;6&quot;
+2) &quot;5&quot;
+3) &quot;4&quot;
+127.0.0.1:6379&gt; rpoplpush list1 list2
+&quot;0&quot;
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;2&quot;
+2) &quot;1&quot;
+127.0.0.1:6379&gt; lrange list2 0 -1
+1) &quot;0&quot;
+2) &quot;6&quot;
+3) &quot;5&quot;
+4) &quot;4&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h4 id="_3-3-7-lset命令"><a href="#_3-3-7-lset命令" class="header-anchor">#</a> 3.3.7 LSET命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>LSET key index element
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>替换指定下标的值</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; lset list1 1 100
+OK
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;2&quot;
+2) &quot;100&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="_3-3-8-linset命令"><a href="#_3-3-8-linset命令" class="header-anchor">#</a> 3.3.8 LINSET命令</h4> <blockquote><p>在指定元素前/后添加元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>LINSERT key &lt;BEFORE | AFTER&gt; pivot element
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; linsert list1 before 100 2
+(integer) 3
+127.0.0.1:6379&gt; lrange list1 0 -1
+1) &quot;2&quot;
+2) &quot;2&quot;
+3) &quot;100&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="_3-3-9-应用场景"><a href="#_3-3-9-应用场景" class="header-anchor">#</a> 3.3.9 应用场景</h4> <blockquote><p>微信公众号订阅消息。</p></blockquote> <h3 id="_3-4-redis哈希-hash"><a href="#_3-4-redis哈希-hash" class="header-anchor">#</a> 3.4 Redis哈希（Hash）</h3> <blockquote><p>KV模式不变，但V是一个键值对。</p></blockquote> <h4 id="_3-4-1-hset-hmset-hgetall-hdel命令"><a href="#_3-4-1-hset-hmset-hgetall-hdel命令" class="header-anchor">#</a> 3.4.1 HSET/HMSET/HGETALL/HDEL命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; hset user1 id 11 name zs age 34
+(integer) 3
+127.0.0.1:6379&gt; hget user1 id
+&quot;11&quot;
+127.0.0.1:6379&gt; hget user1 name
+&quot;zs&quot;
+127.0.0.1:6379&gt; hmget user1 id name age
+1) &quot;11&quot;
+2) &quot;zs&quot;
+3) &quot;34&quot;
+127.0.0.1:6379&gt; hgetall user1
+1) &quot;id&quot;
+2) &quot;11&quot;
+3) &quot;name&quot;
+4) &quot;zs&quot;
+5) &quot;age&quot;
+6) &quot;34&quot;
+127.0.0.1:6379&gt; hdel user1 age
+(integer) 1
+127.0.0.1:6379&gt; hgetall user1
+1) &quot;id&quot;
+2) &quot;11&quot;
+3) &quot;name&quot;
+4) &quot;zs&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h4 id="_3-4-2-hlen命令"><a href="#_3-4-2-hlen命令" class="header-anchor">#</a> 3.4.2 HLEN命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>HLEN key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取某个key内的全部数量。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; hlen user1
+(integer) 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-4-3-hexists命令"><a href="#_3-4-3-hexists命令" class="header-anchor">#</a> 3.4.3 HEXISTS命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>HEXISTS key field
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>判断key里面某个key是否存在。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; hexists user1 name
+(integer) 1
+127.0.0.1:6379&gt; hexists user1 score
+(integer) 0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-4-4-hkeys-hvals命令"><a href="#_3-4-4-hkeys-hvals命令" class="header-anchor">#</a> 3.4.4 HKEYS/HVALS命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>HKEYS key
+HVALS key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p><code>keys</code>：罗列出某个key里边所有的<code>key</code>。</p> <p><code>vals</code>：罗列出某个key里边所有的<code>val</code>。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; hkeys user1
+1) &quot;id&quot;
+2) &quot;name&quot;
+127.0.0.1:6379&gt; hvals suer1
+(empty array)
+127.0.0.1:6379&gt; hvals user1
+1) &quot;11&quot;
+2) &quot;zs&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_3-4-5-hincrby-hincrbyfloat"><a href="#_3-4-5-hincrby-hincrbyfloat" class="header-anchor">#</a> 3.4.5 HINCRBY/HINCRBYFLOAT</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>HINCRBY key field increment
+HINCRBYFLOAT key field increment
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p><code>HINCRBY</code>：按整数递增。</p> <p><code>HINCRBYFLOAT</code>：按小数递增。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; hset user1 age 23 score 90.5
+(integer) 2
+127.0.0.1:6379&gt; hgetall user1
+1) &quot;id&quot;
+2) &quot;11&quot;
+3) &quot;name&quot;
+4) &quot;zs&quot;
+5) &quot;age&quot;
+6) &quot;23&quot;
+7) &quot;score&quot;
+8) &quot;90.5&quot;
+127.0.0.1:6379&gt; hincrby user1 age 1
+(integer) 24
+127.0.0.1:6379&gt; hincrby user1 age 1
+(integer) 25
+127.0.0.1:6379&gt; hincrby user1 age 2
+(integer) 27
+127.0.0.1:6379&gt; hincrbyfloat user1 score 0.5
+&quot;91&quot;
+127.0.0.1:6379&gt; hincrbyfloat user1 score 0.5
+&quot;91.5&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h4 id="_3-4-6-hsetnx命令"><a href="#_3-4-6-hsetnx命令" class="header-anchor">#</a> 3.4.6 HSETNX命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>HSETNX key field value
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>不存在赋值，存在了无效。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; hsetnx user1 sex 1
+(integer) 1
+127.0.0.1:6379&gt; hsetnx user1 sex 1
+(integer) 0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-4-7-应用场景"><a href="#_3-4-7-应用场景" class="header-anchor">#</a> 3.4.7 应用场景</h4> <blockquote><p>JD购物车早期，设计目前不在采用，当前小中厂还在使用。</p></blockquote> <p>###3.5 Redis 集合（Set）</p> <blockquote><p>单值多<code>value</code>，且不重复。</p></blockquote> <h4 id="_3-5-1-sadd命令"><a href="#_3-5-1-sadd命令" class="header-anchor">#</a> 3.5.1 SADD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SADD key member [member ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>添加元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; sadd set1 1 1 1 2 2 3 4 5
+(integer) 5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-5-2-smembers命令"><a href="#_3-5-2-smembers命令" class="header-anchor">#</a> 3.5.2 SMEMBERS命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SMEMBERS key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>遍历集合中的所有元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; smembers set1
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;5&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="_3-5-3-sismember命令"><a href="#_3-5-3-sismember命令" class="header-anchor">#</a> 3.5.3 SISMEMBER命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SISMEMBER key member
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>判断元素是否在集合中。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; smembers set1
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;5&quot;
+127.0.0.1:6379&gt; sismember set1 x
+(integer) 0
+127.0.0.1:6379&gt; sismember set1 1
+(integer) 1
+127.0.0.1:6379&gt; sismember set1 3
+(integer) 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h4 id="_3-5-4-srem命令"><a href="#_3-5-4-srem命令" class="header-anchor">#</a> 3.5.4 SREM命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SREM key member [member ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>删除元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; srem set1 y
+(integer) 0
+127.0.0.1:6379&gt; srem set1 5
+(integer) 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-5-5-scard命令"><a href="#_3-5-5-scard命令" class="header-anchor">#</a> 3.5.5 SCARD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SCARD key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取集合中元素的个数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; smembers set1
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+127.0.0.1:6379&gt; scard set1
+(integer) 4
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_3-5-6-srandmember命令"><a href="#_3-5-6-srandmember命令" class="header-anchor">#</a> 3.5.6 SRANDMEMBER命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SRANDMEMBER key [count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>从集合中随机展现设置的数字个数元素，元素不删除。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; srandmember set1 2
+1) &quot;4&quot;
+2) &quot;2&quot;
+127.0.0.1:6379&gt; smembers set1
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_3-5-7-spop命令"><a href="#_3-5-7-spop命令" class="header-anchor">#</a> 3.5.7 SPOP命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SPOP key [count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>从集合中随机弹出一个元素，出一个删除一个。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; spop set1 1
+1) &quot;2&quot;
+127.0.0.1:6379&gt; spop set1 1
+1) &quot;1&quot;
+127.0.0.1:6379&gt; smembers set1
+1) &quot;3&quot;
+2) &quot;4&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_3-5-8-smove命令"><a href="#_3-5-8-smove命令" class="header-anchor">#</a> 3.5.8 SMOVE命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SMOVE source destination member
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>将<code>source</code>里已存在的某个值<code>member</code>赋给<code>destination</code>。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; smove set1 set2 4
+(integer) 1
+127.0.0.1:6379&gt; smembers set1
+1) &quot;3&quot;
+127.0.0.1:6379&gt; smembers set2
+1) &quot;4&quot;
+2) &quot;100&quot;
+3) &quot;101&quot;
+4) &quot;102&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="_3-5-9-集合的差集运算"><a href="#_3-5-9-集合的差集运算" class="header-anchor">#</a> 3.5.9 集合的差集运算</h4> <blockquote><p><code>A：abc12</code>。</p> <p><code>B：123ax</code>。</p> <p>A-B：属于A但不属于B的元素构成的集合。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>SDIFF key [key ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; sadd set1 a b c 1 2
+(integer) 5
+127.0.0.1:6379&gt; sadd set2 1 2 3 a x
+(integer) 5
+127.0.0.1:6379&gt; sdiff set1 set2
+1) &quot;b&quot;
+2) &quot;c&quot;
+127.0.0.1:6379&gt; sdiff set2 set1
+1) &quot;3&quot;
+2) &quot;x&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="_3-5-10-集合的并集运算"><a href="#_3-5-10-集合的并集运算" class="header-anchor">#</a> 3.5.10 集合的并集运算</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SUNION key [key ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p><code>A∪B</code>：属于A或者属于B的元素合并后的集合。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; sdiff set2 set1
+1) &quot;3&quot;
+2) &quot;x&quot;
+127.0.0.1:6379&gt; sunion set1 set2
+1) &quot;3&quot;
+2) &quot;b&quot;
+3) &quot;1&quot;
+4) &quot;2&quot;
+5) &quot;a&quot;
+6) &quot;c&quot;
+7) &quot;x&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h4 id="_3-5-11-集合的交集运算"><a href="#_3-5-11-集合的交集运算" class="header-anchor">#</a> 3.5.11 集合的交集运算</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SINTER key [key ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p><code>A∩B</code>：属于A同时也属于B的共同拥有的元素构成的集合。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; sinter set1 set2
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;a&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-5-12-sintercard命令"><a href="#_3-5-12-sintercard命令" class="header-anchor">#</a> 3.5.12 SINTERCARD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SINTERCARD numkeys key [key ...] [LIMIT limit]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>redis 7新命令，他不返回结果集，而只返回结果的基数。返回由所有给定集合的交集产生的集合的基数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; sinter set1 set2
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;a&quot;
+127.0.0.1:6379&gt; sintercard 2 set1 set2
+(integer) 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="_3-5-13-应用场景"><a href="#_3-5-13-应用场景" class="header-anchor">#</a> 3.5.13 应用场景</h4> <blockquote><ol><li>微信抽奖小程序</li></ol></blockquote> <p><img src="/blog/assets/img/image-20230420120804368.88f3fd85.png" alt="image-20230420120804368"></p> <blockquote><ol start="2"><li>微信朋友圈点赞查看同赞朋友；</li></ol></blockquote> <p><img src="/blog/assets/img/image-20230420121148183.a704277e.png" alt="image-20230420121148183"></p> <blockquote><ol start="3"><li>QQ内推可能认识的人。</li></ol></blockquote> <h3 id="_3-6-redis-有序集合-zset"><a href="#_3-6-redis-有序集合-zset" class="header-anchor">#</a> 3.6 Redis 有序集合（Zset）</h3> <blockquote><p>在set基础上，每个<code>val</code>值前加一个<code>score</code>分数值。之前<code>set</code>是<code>k1 v1 v2 v3</code>，现在<code>zset</code>是：<code>k1 score1 v1 score2 v2</code></p></blockquote> <h4 id="_3-6-1-zadd命令"><a href="#_3-6-1-zadd命令" class="header-anchor">#</a> 3.6.1 ZADD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZADD key [NX | XX] [GT | LT] [CH] [INCR] score member [score member
+  ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>向有序集合中加入一个元素和该元素的分数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zadd zset1 60 v1 70 v2 80 v3 90 v4 100 v5
+(integer) 5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-6-2-zrange命令"><a href="#_3-6-2-zrange命令" class="header-anchor">#</a> 3.6.2 ZRANGE命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZRANGE key start stop [BYSCORE | BYLEX] [REV] [LIMIT offset count]
+  [WITHSCORES]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>按照元素分数从小到大的顺序，返回索引从start到stop之间的所有元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zrange zset1 0 -1
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+4) &quot;v4&quot;
+5) &quot;v5&quot;
+127.0.0.1:6379&gt; zrange zset1 0 -1 withscores
+ 1) &quot;v1&quot;
+ 2) &quot;60&quot;
+ 3) &quot;v2&quot;
+ 4) &quot;70&quot;
+ 5) &quot;v3&quot;
+ 6) &quot;80&quot;
+ 7) &quot;v4&quot;
+ 8) &quot;90&quot;
+ 9) &quot;v5&quot;
+10) &quot;100&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h4 id="_3-6-3-zrevrange命令"><a href="#_3-6-3-zrevrange命令" class="header-anchor">#</a> 3.6.3 ZREVRANGE命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZREVRANGE key start stop [WITHSCORES]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>反转，返回索引从start到stop之间的所有元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zrevrange zset1 0 -1 withscores
+ 1) &quot;v5&quot;
+ 2) &quot;100&quot;
+ 3) &quot;v4&quot;
+ 4) &quot;90&quot;
+ 5) &quot;v3&quot;
+ 6) &quot;80&quot;
+ 7) &quot;v2&quot;
+ 8) &quot;70&quot;
+ 9) &quot;v1&quot;
+10) &quot;60&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h4 id="_3-6-4-zrangebyscore命令"><a href="#_3-6-4-zrangebyscore命令" class="header-anchor">#</a> 3.6.4 ZRANGEBYSCORE命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取指定分数范围的元素。（<code>（</code>不包括）</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zrangebyscore zset1 60 90
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+4) &quot;v4&quot;
+127.0.0.1:6379&gt; zrangebyscore zset1 60 90 withscores
+1) &quot;v1&quot;
+2) &quot;60&quot;
+3) &quot;v2&quot;
+4) &quot;70&quot;
+5) &quot;v3&quot;
+6) &quot;80&quot;
+7) &quot;v4&quot;
+8) &quot;90&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="_3-6-5-zscore命令"><a href="#_3-6-5-zscore命令" class="header-anchor">#</a> 3.6.5 ZSCORE命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZSCORE key member
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取元素的分数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zscore zset1 v3
+&quot;80&quot;
+127.0.0.1:6379&gt; zscore zset1 v2
+&quot;70&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-6-6-zcard命令"><a href="#_3-6-6-zcard命令" class="header-anchor">#</a> 3.6.6 ZCARD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZCARD key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取集合中元素的个数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zcard zset1
+(integer) 5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-6-7-zrem命令"><a href="#_3-6-7-zrem命令" class="header-anchor">#</a> 3.6.7 ZREM命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZREM key member [member ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>删除元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zrem zset1 v5
+(integer) 1
+127.0.0.1:6379&gt; zrange zset1 0 -1
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+4) &quot;v4&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_3-6-8-zincrby命令"><a href="#_3-6-8-zincrby命令" class="header-anchor">#</a> 3.6.8 ZINCRBY命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZINCRBY key increment member
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>增加某个元素的分数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zincrby zset1 3 v1
+&quot;63&quot;
+127.0.0.1:6379&gt; zrange zset1 0 -1 withscores
+1) &quot;v1&quot;
+2) &quot;63&quot;
+3) &quot;v2&quot;
+4) &quot;70&quot;
+5) &quot;v3&quot;
+6) &quot;80&quot;
+7) &quot;v4&quot;
+8) &quot;90&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h4 id="_3-6-9-zcount命令"><a href="#_3-6-9-zcount命令" class="header-anchor">#</a> 3.6.9 ZCOUNT命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZCOUNT key min max
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取指定分数范围内的元素个数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zcount zset1 60 80
+(integer) 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-8-10-zmpop命令"><a href="#_3-8-10-zmpop命令" class="header-anchor">#</a> 3.8.10 ZMPOP命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZMPOP numkeys key [key ...] &lt;MIN | MAX&gt; [COUNT count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>从键名列表中的第一个非空的排序集中弹出一个或多个元素，他们是成员分数对。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zmpop 1 zset1 min count 1
+1) &quot;zset1&quot;
+2) 1) 1) &quot;v1&quot;
+      2) &quot;63&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-8-10-zrank-zrevrank命令"><a href="#_3-8-10-zrank-zrevrank命令" class="header-anchor">#</a> 3.8.10 ZRANK/ZREVRANK命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>ZRANK key member [WITHSCORE]
+ZREVRANK key member [WITHSCORE]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>获取下标值。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; zrange zset1 0 -1
+1) &quot;v2&quot;
+2) &quot;v3&quot;
+3) &quot;v4&quot;
+127.0.0.1:6379&gt; zrank zset1 v2
+(integer) 0
+127.0.0.1:6379&gt; zrevrank zset1 v2
+(integer) 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_3-8-11-应用场景"><a href="#_3-8-11-应用场景" class="header-anchor">#</a> 3.8.11 应用场景</h4> <blockquote><p>根据商品销售对商品进行排序。</p></blockquote> <p><img src="/blog/assets/img/image-20230420142822822.6a53683a.png" alt="image-20230420142822822"></p> <h3 id="_3-7-redis-位图-bitmap"><a href="#_3-7-redis-位图-bitmap" class="header-anchor">#</a> 3.7 Redis 位图（Bitmap）</h3> <blockquote><p>由0和1状态表示二进制位的bit数组。</p> <p>需求：</p> <ol><li>用户是否登录过Y、N，比如京东每日签到送京豆；</li> <li>电影、广告是否被点击播放过；</li> <li>钉钉打卡上下班，签到统计。</li></ol></blockquote> <h4 id="_3-7-1-setbit-getbit命令"><a href="#_3-7-1-setbit-getbit命令" class="header-anchor">#</a> 3.7.1 SETBIT/GETBIT命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>SETBIT key offset value
+GETBIT key offset
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>Bitmap的偏移量是从零开始算的。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; setbit k1 1 1
+(integer) 0
+127.0.0.1:6379&gt; setbit k1 2 1
+(integer) 0
+127.0.0.1:6379&gt; getbit k1 1
+(integer) 1
+127.0.0.1:6379&gt; getbit k1 2
+(integer) 1
+127.0.0.1:6379&gt; setbit k1 3 0
+(integer) 0
+127.0.0.1:6379&gt; getbit k1 3
+(integer) 0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><img src="/blog/assets/img/image-20230420145052084.915dd845.png" alt="image-20230420145052084"></p> <h4 id="_3-7-2-strlen命令"><a href="#_3-7-2-strlen命令" class="header-anchor">#</a> 3.7.2 STRLEN命令</h4> <blockquote><p>不是字符串长度而是占据几个字节，超过8位后自己按照8位一组一byte再扩容。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; strlen k1
+(integer) 1
+127.0.0.1:6379&gt; setbit k1 8 1
+(integer) 0
+127.0.0.1:6379&gt; strlen k1
+(integer) 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="_3-7-3-bitcount命令"><a href="#_3-7-3-bitcount命令" class="header-anchor">#</a> 3.7.3 BITCOUNT命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>BITCOUNT key [start end [BYTE | BIT]]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>全部键里面含有<code>1</code>的有多少个。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; bitcount k1
+(integer) 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-7-4-bitop命令"><a href="#_3-7-4-bitop命令" class="header-anchor">#</a> 3.7.4 BITOP命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>BITOP &lt;AND | OR | XOR | NOT&gt; destkey key [key ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; bitop and k1 k2
+(integer) 0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-7-5-应用场景"><a href="#_3-7-5-应用场景" class="header-anchor">#</a> 3.7.5 应用场景</h4> <blockquote><p>签到，一年签到多少天。</p></blockquote> <h3 id="_3-8-redis-基数统计-hyperloglog"><a href="#_3-8-redis-基数统计-hyperloglog" class="header-anchor">#</a> 3.8 Redis 基数统计（HyperLogLog）</h3> <blockquote><p>基数：是一种数据集，去重复后的真实个数。</p> <p>需求：</p> <ol><li>统计某个网站的UV、统计某个文章的UV。（UV：独立访客，一般理解为客户端IP）</li> <li>用户搜索网站关键词的数量</li> <li>统计用户每天搜索不同词条个数</li></ol></blockquote> <h4 id="_3-8-1-pfadd命令"><a href="#_3-8-1-pfadd命令" class="header-anchor">#</a> 3.8.1 PFADD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>PFADD key [element [element ...]]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>添加指定元素到<code>HyperLogLog</code>。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; pfadd hy1 1 2 3 4 5 6
+(integer) 1
+127.0.0.1:6379&gt; pfadd hy2 1 1 1 2 3 4 5 6
+(integer) 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-8-2-pfcount命令"><a href="#_3-8-2-pfcount命令" class="header-anchor">#</a> 3.8.2 PFCOUNT命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>PFCOUNT key [key ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>去重统计。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; pfadd hy2 1 1 1 2 3 4 5 6
+(integer) 1
+127.0.0.1:6379&gt; pfcount hy2
+(integer) 6
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-8-3-pfmerge命令"><a href="#_3-8-3-pfmerge命令" class="header-anchor">#</a> 3.8.3 PFMERGE命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>PFMERGE destkey [sourcekey [sourcekey ...]]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>合并结果，去重</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; pfmerge distResult hy1 hy2
+OK
+127.0.0.1:6379&gt; pfcount distResult
+(integer) 6
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_3-8-4-应用场景"><a href="#_3-8-4-应用场景" class="header-anchor">#</a> 3.8.4 应用场景</h4> <blockquote><p>天猫网站首页亿级UV的redis统计方案。</p></blockquote> <h3 id="_3-9-redis-地理空间-geo"><a href="#_3-9-redis-地理空间-geo" class="header-anchor">#</a> 3.9 Redis 地理空间（GEO）</h3> <blockquote><p>Redis在3.2版本后添加了地理位置的处理。</p></blockquote> <h4 id="_3-9-1-geoadd命令"><a href="#_3-9-1-geoadd命令" class="header-anchor">#</a> 3.9.1 GEOADD命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>GEOADD key [NX | XX] [CH] longitude latitude member [longitude
+  latitude member ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>添加经纬度坐标。（中文乱码解决：退出登录，在登录时添加<code>-- raw</code>）</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; geoadd city 116.4 39.9 &quot;tam&quot; 116.4 39.9 &quot;gg&quot; 116.0 40.3 &quot;cc&quot;
+(integer) 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-9-2-geopos命令"><a href="#_3-9-2-geopos命令" class="header-anchor">#</a> 3.9.2 GEOPOS命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>GEOPOS key [member [member ...]]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>从给定的key里返回所有指定名称（member）的位置（经纬度），不存在的返回<code>nil</code>。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; geopos city  &quot;tam&quot; &quot;gg&quot; &quot;cc&quot;
+1) 1) &quot;116.39999896287918091&quot;
+   2) &quot;39.90000009167092543&quot;
+2) 1) &quot;116.39999896287918091&quot;
+   2) &quot;39.90000009167092543&quot;
+3) 1) &quot;116.00000113248825073&quot;
+   2) &quot;40.29999936838388663&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_3-9-3-geohash命令"><a href="#_3-9-3-geohash命令" class="header-anchor">#</a> 3.9.3 GEOHASH命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>GEOHASH key [member [member ...]]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>返回坐标的geohash表示。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; geohash city &quot;tam&quot; &quot;gg&quot;
+1) &quot;wx4fbxxfke0&quot;
+2) &quot;wx4fbxxfke0&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="_3-9-4-geodist命令"><a href="#_3-9-4-geodist命令" class="header-anchor">#</a> 3.9.4  GEODIST命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>GEODIST key member1 member2 [M | KM | FT | MI]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>返回两个给定位置之间的距离。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; geodist city &quot;tam&quot; &quot;cc&quot; km
+&quot;56.0137&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="_3-9-5-georadius命令"><a href="#_3-9-5-georadius命令" class="header-anchor">#</a> 3.9.5 GEORADIUS命令</h4> <blockquote><p>以给定的经纬度为中心，返回键包含的位置当中，与中心的距离不超过给定最大距离的所有位置元素。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>GEORADIUS key longitude latitude radius &lt;M | KM | FT | MI&gt;
+  [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count [ANY]] [ASC | DESC]
+  [STORE key] [STOREDIST key]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><blockquote><p>参数：</p> <p><code>EITHDIST</code>：在返回位置元素的同时，将位置元素与中心之间的距离也一并返回。</p> <p><code>WITHCOORD</code>：将位置元素的经度和维度也一并返回。</p> <p><code>WITHHASH</code>：返回位置元素经过原始<code>GEOHASH</code>编码的有序集合分值，这个选项主要用于底层应用或者调试，实际中的作用并不大。</p> <p><code>COUNT</code>：限定返回的记录数。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; GEORADIUS city 116.4 39.9 10 km withdist withcoord withhash count 10 desc
+1) 1) &quot;gg&quot;
+   2) &quot;0.0001&quot;
+   3) (integer) 4069885360207904
+   4) 1) &quot;116.39999896287918091&quot;
+      2) &quot;39.90000009167092543&quot;
+2) 1) &quot;tam&quot;
+   2) &quot;0.0001&quot;
+   3) (integer) 4069885360207904
+   4) 1) &quot;116.39999896287918091&quot;
+      2) &quot;39.90000009167092543&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h4 id="_3-9-6-georadiusbymember命令"><a href="#_3-9-6-georadiusbymember命令" class="header-anchor">#</a> 3.9.6 GEORADIUSBYMEMBER命令</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>GEORADIUSBYMEMBER key member radius &lt;M | KM | FT | MI&gt; [WITHCOORD]
+  [WITHDIST] [WITHHASH] [COUNT count [ANY]] [ASC | DESC] [STORE key]
+  [STOREDIST key]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><blockquote><p>找出位于指定范围内的元素，中心点是由给定的位置元素决定。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; georadiusbymember city &quot;tam&quot; 10 km withdist withcoord count 10 withhash
+1) 1) &quot;gg&quot;
+   2) &quot;0.0000&quot;
+   3) (integer) 4069885360207904
+   4) 1) &quot;116.39999896287918091&quot;
+      2) &quot;39.90000009167092543&quot;
+2) 1) &quot;tam&quot;
+   2) &quot;0.0000&quot;
+   3) (integer) 4069885360207904
+   4) 1) &quot;116.39999896287918091&quot;
+      2) &quot;39.90000009167092543&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_3-10-redis-流-stream"><a href="#_3-10-redis-流-stream" class="header-anchor">#</a> 3.10 Redis 流（Stream）</h3> <blockquote><p>实现消息队列，他支持消息的持久化、支持自动生成全局唯一ID、支持ack确认消息的模式、支持消费组模式等，让消息队列更加的稳定和可靠。</p></blockquote> <p><img src="/blog/assets/img/image-20230420190457593.29d9b6b4.png" alt="image-20230420190457593"></p> <h4 id="_3-10-1-队列相关指令"><a href="#_3-10-1-队列相关指令" class="header-anchor">#</a> 3.10.1 队列相关指令</h4> <h5 id="_3-10-1-1-xadd命令"><a href="#_3-10-1-1-xadd命令" class="header-anchor">#</a> 3.10.1.1 XADD命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XADD key [NOMKSTREAM] [&lt;MAXLEN | MINID&gt; [= | ~] threshold
+  [LIMIT count]] &lt;* | id&gt; field value [field value ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>添加消息到队列末尾，消息ID必须要比上个ID大，默认用星号表示自动生成规矩，系统自动生成。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; xadd stream * id 11 cname zs
+&quot;1681989356672-0&quot; ----&gt;消息ID
+127.0.0.1:6379&gt; xadd stream * id 12 cname ls
+&quot;1681989363942-0&quot;
+127.0.0.1:6379&gt; xadd stream * id 13 cname ww
+&quot;1681989373821-0&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h5 id="_3-10-1-2-xrange命令"><a href="#_3-10-1-2-xrange命令" class="header-anchor">#</a> 3.10.1.2 XRANGE命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XRANGE key start end [COUNT count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>用于获取消息列表（可以指定范围），忽略删除的消息。start表示开始值，-代表最小值；end表示结束值，+代表最大值；count表示最多获取多少个值。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; xrange stream - + 
+1) 1) &quot;1681989356672-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;11&quot;
+      3) &quot;cname&quot;
+      4) &quot;zs&quot;
+2) 1) &quot;1681989363942-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;12&quot;
+      3) &quot;cname&quot;
+      4) &quot;ls&quot;
+3) 1) &quot;1681989373821-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;13&quot;
+      3) &quot;cname&quot;
+      4) &quot;ww&quot;
+127.0.0.1:6379&gt; xrange stream - + count 1
+1) 1) &quot;1681989356672-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;11&quot;
+      3) &quot;cname&quot;
+      4) &quot;zs&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h5 id="_3-10-1-3-xrevrange命令"><a href="#_3-10-1-3-xrevrange命令" class="header-anchor">#</a> 3.10.1.3 XREVRANGE命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XREVRANGE key end start [COUNT count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>降序输出列表。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; xrevrange stream + -
+1) 1) &quot;1681989373821-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;13&quot;
+      3) &quot;cname&quot;
+      4) &quot;ww&quot;
+2) 1) &quot;1681989363942-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;12&quot;
+      3) &quot;cname&quot;
+      4) &quot;ls&quot;
+3) 1) &quot;1681989356672-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;11&quot;
+      3) &quot;cname&quot;
+      4) &quot;zs&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h5 id="_3-10-1-4-xdel命令"><a href="#_3-10-1-4-xdel命令" class="header-anchor">#</a> 3.10.1.4 XDEL命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XDEL key id [id ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>根据指定ID删除。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; xdel stream 1681989356672-0
+(integer) 1
+127.0.0.1:6379&gt; xrange stream - +
+1) 1) &quot;1681989363942-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;12&quot;
+      3) &quot;cname&quot;
+      4) &quot;ls&quot;
+2) 1) &quot;1681989373821-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;13&quot;
+      3) &quot;cname&quot;
+      4) &quot;ww&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h5 id="_3-10-1-5-xlen命令"><a href="#_3-10-1-5-xlen命令" class="header-anchor">#</a> 3.10.1.5 XLEN命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XLEN key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>获取<code>stream</code>队列的消息的长度。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; xlen stream
+(integer) 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h5 id="_3-10-1-6-xtrim命令"><a href="#_3-10-1-6-xtrim命令" class="header-anchor">#</a> 3.10.1.6 XTRIM命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XTRIM key &lt;MAXLEN | MINID&gt; [= | ~] threshold [LIMIT count]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>用于对stream的长度进行截取，MAXLEN允许的最大长度，对流进行修剪限制长度，MINID允许最小ID，从某个值开始比该ID值小的将会被抛弃。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1:6379&gt; xrange stream - +
+1) 1) &quot;1681989363942-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;12&quot;
+      3) &quot;cname&quot;
+      4) &quot;ls&quot;
+2) 1) &quot;1681989373821-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;13&quot;
+      3) &quot;cname&quot;
+      4) &quot;ww&quot;
+127.0.0.1:6379&gt; xtrim stream maxlen 1
+(integer) 1
+127.0.0.1:6379&gt; xrange stream - +
+1) 1) &quot;1681989373821-0&quot;
+   2) 1) &quot;id&quot;
+      2) &quot;13&quot;
+      3) &quot;cname&quot;
+      4) &quot;ww&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h5 id="_3-10-1-7-xread命令"><a href="#_3-10-1-7-xread命令" class="header-anchor">#</a> 3.10.1.7 XREAD命令</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
+  [id ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="/blog/assets/img/image-20230420194636883.f0608036.png" alt="image-20230420194636883"></p> <h4 id="_3-10-2-消费组相关指令"><a href="#_3-10-2-消费组相关指令" class="header-anchor">#</a> 3.10.2 消费组相关指令</h4> <h5 id="_3-10-2-1-xgroup-create"><a href="#_3-10-2-1-xgroup-create" class="header-anchor">#</a> 3.10.2.1 XGROUP CREATE</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XGROUP CREATE key group &lt;id | $&gt; [MKSTREAM]
+  [ENTRIESREAD entries-read]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>用于创建消费组。</p></blockquote> <p><img src="/blog/assets/img/image-20230420195048875.ed1f5f2a.png" alt="image-20230420195048875"></p> <h5 id="_3-10-2-2-xreadgroup-group"><a href="#_3-10-2-2-xreadgroup-group" class="header-anchor">#</a> 3.10.2.2 XREADGROUP GROUP</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>XREADGROUP GROUP group consumer [COUNT count] [BLOCK milliseconds]
+  [NOACK] STREAMS key [key ...] id [id ...]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="/blog/assets/img/image-20230420201412516.d8fa29a1.png" alt="image-20230420201412516"></p> <h3 id="_3-11-redis-位域-bitfield"><a href="#_3-11-redis-位域-bitfield" class="header-anchor">#</a> 3.11 Redis 位域（Bitfield）</h3> <blockquote><p>略</p></blockquote></div></div> <!----> <div class="page-edit"><!----> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2023/09/21, 10:20:29</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/blog/pages/a13936/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">Redis的安装与配置</div></a> <a href="/blog/pages/18ccca/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">Redis持久化</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/pages/a13936/" class="prev">Redis的安装与配置</a></span> <span class="next"><a href="/blog/pages/18ccca/">Redis持久化</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2024
+    <span>yli | 本博客是个人的学习笔记，如有侵权，请联系删除，微信：y17616193585</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.9b9d5677.js" defer></script><script src="/blog/assets/js/2.46ebd511.js" defer></script><script src="/blog/assets/js/19.34852d7c.js" defer></script>
+  </body>
+</html>
